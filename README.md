@@ -11,4 +11,5 @@ Before stash 1
 
 Aditional modification for conflict test.  
 1
-2
+23
+4
