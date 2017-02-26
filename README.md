@@ -8,3 +8,7 @@
 Adaugarea comiturilor pentru noul branch.
 Trying to return a commit;
 Before stash 1
+
+Aditional modification for conflict test.  
+1
+2
