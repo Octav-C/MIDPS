@@ -2,20 +2,29 @@
 \usepackage{lab_style}
 \usepackage{pdfpages}
 \usepackage{eso-pic}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+\usepackage{graphicx}
 
 \begin{document}
 % TITLE
 \input{Lab1title.tex}
 \cleardoublepage
 
-\newpage
+\input{Lab1introduction.tex}
 
+\input{Lab1firstch.tex}
 
+\input{Lab1conclusion.tex}
+\cleardoublepage
 
-
-
-
-
+\input{Lab1biblio.tex}
+\cleardoublepage
 
 
 \end{document}
