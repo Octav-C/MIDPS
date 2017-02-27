@@ -11,4 +11,4 @@ Before stash 1
 
 Aditional modification for conflict test.2  
 2
-2
+2qweryy
