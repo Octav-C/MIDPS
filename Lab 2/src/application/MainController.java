@@ -20,26 +20,24 @@ public class MainController {
 	@FXML
 	public void processDel (ActionEvent event){
 		isDel = true;
-		processNum();
+		processNum(event);
 		
 	}
 	
 	@FXML
 	public void processNum (ActionEvent event) {
 		text = ((Button)event.getSource()).getText();
-		if (text == Delete){
-			
-		}
-			
-		if(isDel == true){
-			text.substring(0, (text.length() - 1));
+		if (isDel == true){
+			text = display.getText();
+			text = text.substring(0, text.length() - 1);
 			isDel = false;
-		}
+			display.setText(text);
+		}else {	
 		if (display.getText() == "0")
 			display.setText("");
 
 		display.setText(display.getText() + text);
-	}
+	}}
 	
 	@FXML
 	public void processOperators (ActionEvent event) {
