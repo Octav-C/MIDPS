@@ -36,17 +36,18 @@ public class MainController {
 			text = text.substring(0, text.length() - 1);
 			isDel = false;
 			display.setText(text);
-		}else {	
-		if (display.getText() == "0")
-			display.setText("");
-		
-		display.setText(display.getText() + text);
-		text = display.getText();
+		}	
+		if(display.getText().equals("0") || display.getText().equals("ErDivide by zero")){
+			display.setText(text);
+		}
+		else{
+			display.setText(display.getText() + text);
+			text = display.getText();
 	}}
 	
 	@FXML
 	public void processOperators (ActionEvent event) {
-		double value;
+		double value = 0;
 		decimal = false;
 		operatorInput = ((Button)event.getSource()).getText();
 		switch (operatorInput){
@@ -54,9 +55,17 @@ public class MainController {
 			display.setText("0");
 			break;
 		case "±":
+			if (multiply == false){
 			value = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
 			value = value * (-1);
 			display.setText(String.valueOf(value));
+			}
+			else {
+				value = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
+				value = value * (-1);
+				secondNum = value;
+				display.setText(String.valueOf(value));
+			}
 			break;
 		case "√":
 			firstNum = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
@@ -77,11 +86,12 @@ public class MainController {
 			break;
 		case "÷":
 		case "x":
-			multiply = true;
 		case "-":
 		case "+":
 		case "x^":
+			multiply = true;
 			firstNum = Double.parseDouble(display.getText());
+			result = firstNum;
 			display.setText("");
 		}
 	}
@@ -89,34 +99,47 @@ public class MainController {
 	@FXML
 	public void processDecimal (ActionEvent event) {
 		if(decimal == false){
-		display.setText(text + ((Button)event.getSource()).getText());
+		display.setText(display.getText() + ((Button)event.getSource()).getText());
 		decimal=true;
 		}
 	}
 	
 	@FXML
 	public void processEqual (ActionEvent event) {
+		if (multiply == true){
 		secondNum = Double.parseDouble(display.getText());
+		multiply = false;
+		}
 		switch (operatorInput){
 		case "÷":
-			result = firstNum / secondNum;
+			if(secondNum == 0){
+				display.setText("ErDivide by zero");
+				return;
+			}
+			else{
+			result = BigDecimal.valueOf(result / secondNum).setScale(9, RoundingMode.HALF_UP).doubleValue();
+			}
 			break;
 		case "x":
-			result = firstNum * secondNum;
+			result = BigDecimal.valueOf(result * secondNum).setScale(9, RoundingMode.HALF_UP).doubleValue();
 			break;
 		case "-":
-			result = firstNum - secondNum;
+			result = BigDecimal.valueOf(result - secondNum).setScale(9, RoundingMode.HALF_UP).doubleValue();
 			break;
 		case "+":
-			result = firstNum + secondNum;
+			result = BigDecimal.valueOf(result + secondNum).setScale(9, RoundingMode.HALF_UP).doubleValue();;
 			break;
 		case "x^":
-			result = BigDecimal.valueOf(Math.pow(firstNum, secondNum)).setScale(9, RoundingMode.HALF_UP).doubleValue();
+			result = BigDecimal.valueOf(Math.pow(result, secondNum)).setScale(9, RoundingMode.HALF_UP).doubleValue();
 			break;
 		default:
 			display.setText("Invalid symbol");
 			break;	
 		}
+		if (String.valueOf(result).endsWith(".0"))
+			display.setText(String.valueOf((int)result));
+		else
 		display.setText(String.valueOf(result));
+		
 	}
 }

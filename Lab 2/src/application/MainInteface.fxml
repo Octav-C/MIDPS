@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="460.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="62.0" prefWidth="303.0" style="-fx-background-color: gray;" textOverrun="CLIP" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="-32.0" prefHeight="50.0" prefWidth="303.0" style="-fx-background-color: gray;" textOverrun="CLIP" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
          <font>
             <Font size="38.0" />
          </font></Label>
@@ -111,12 +111,12 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="155.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="71.0" prefWidth="76.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button id="operator" cache="true" mnemonicParsing="false" onAction="#processEqual" prefHeight="65.0" prefWidth="135.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Button id="operator" cache="true" mnemonicParsing="false" onAction="#processEqual" prefHeight="94.0" prefWidth="101.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font size="30.0" />
                </font></Button>
