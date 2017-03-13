@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="20.0" maxWidth="310.0" prefHeight="0.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane prefHeight="460.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Label fx:id="display" alignment="CENTER_RIGHT" layoutX="76.0" layoutY="28.0" prefHeight="101.0" prefWidth="300.0" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="370.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="28.0">
+      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="-4.0" prefHeight="65.0" prefWidth="303.0" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="371.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
          <font>
-            <Font name="Consolas" size="79.0" />
+            <Font name="Consolas" size="58.0" />
          </font></Label>
       <GridPane layoutY="291.0" prefHeight="370.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columnConstraints>
@@ -76,7 +76,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="183.0" text="Delete" GridPane.columnIndex="2" GridPane.columnSpan="2">
+            <Button mnemonicParsing="false" onAction="#processDel" prefHeight="65.0" prefWidth="183.0" text="Delete" GridPane.columnIndex="2" GridPane.columnSpan="2">
                <font>
                   <Font size="30.0" />
                </font></Button>
@@ -116,7 +116,7 @@
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="135.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Button mnemonicParsing="false" onAction="#processEqual" prefHeight="65.0" prefWidth="135.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font size="30.0" />
                </font></Button>
