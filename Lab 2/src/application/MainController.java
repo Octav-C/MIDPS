@@ -1,6 +1,7 @@
 package application;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -11,18 +12,13 @@ public class MainController {
 	@FXML
 	private Label display;
 	private String output = "";
-	private BigDecimal firstNum;
-	private BigDecimal secondNum;
+	private double firstNum;
+	private double secondNum;
 	private String operatorInput;
-	private BigDecimal result;
+	private double result;
 	private String text;
 	private boolean isDel = false;
 	private boolean decimal = false;
-	
-	public static BigDecimal sqrt(BigDecimal value) {
-	    BigDecimal x = new BigDecimal(Math.sqrt(value.doubleValue()));
-	    return x.add(new BigDecimal(value.subtract(x.multiply(x)).doubleValue() / (x.doubleValue() * 2.0)));
-	}
 	
 	@FXML
 	public void processDel (ActionEvent event){
@@ -49,20 +45,20 @@ public class MainController {
 	
 	@FXML
 	public void processOperators (ActionEvent event) {
-		BigDecimal value;
+		double value;
 		operatorInput = ((Button)event.getSource()).getText();
 		switch (operatorInput){
 		case "C":
 			display.setText("0");
 			break;
 		case "±":
-			value = BigDecimal.valueOf(Double.parseDouble(display.getText()));
+			value = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
 			value = value * (-1);
 			display.setText(String.valueOf(value));
 			break;
 		case "√":
-			firstNum = BigDecimal.valueOf(Double.parseDouble(display.getText()));
-			result = sqrt(firstNum);
+			firstNum = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
+			result = Math.sqrt(firstNum);
 			display.setText(String.valueOf(result));
 			break;
 		case "%":
@@ -106,7 +102,7 @@ public class MainController {
 			result = firstNum + secondNum;
 			break;
 		case "x^":
-			result = Math.pow(firstNum, secondNum);
+			result = BigDecimal.valueOf(Math.pow(firstNum, secondNum)).setScale(9, RoundingMode.HALF_UP).doubleValue();
 			break;
 		default:
 			display.setText("Invalid symbol");
@@ -114,7 +110,4 @@ public class MainController {
 		}
 		display.setText(String.valueOf(result));
 	}
-	
-	
-
 }

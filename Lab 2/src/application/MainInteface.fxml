@@ -11,9 +11,9 @@
 
 <AnchorPane prefHeight="460.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="62.0" prefWidth="303.0" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="62.0" prefWidth="303.0" style="-fx-background-color: gray;" textOverrun="CLIP" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
          <font>
-            <Font name="Consolas" size="58.0" />
+            <Font size="38.0" />
          </font></Label>
       <GridPane layoutY="291.0" prefHeight="370.0" prefWidth="300.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <columnConstraints>
@@ -31,96 +31,96 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="90.0" text="√">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="90.0" text="√">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="118.0" text="C" GridPane.rowIndex="1">
+            <Button id="nums" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="118.0" text="C" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="111.0" text="7" GridPane.rowIndex="2">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="111.0" text="7" GridPane.rowIndex="2">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="128.0" text="4" GridPane.rowIndex="3">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="128.0" text="4" GridPane.rowIndex="3">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="118.0" text="1" GridPane.rowIndex="4">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="118.0" text="1" GridPane.rowIndex="4">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="80.0" prefWidth="89.0" text="x^" GridPane.columnIndex="1">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="80.0" prefWidth="89.0" text="x^" GridPane.columnIndex="1">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="121.0" text="±" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button id="nums" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="121.0" text="±" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="119.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="119.0" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="156.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="156.0" text="5" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="126.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="126.0" text="2" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="184.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="184.0" text="0" GridPane.columnSpan="2" GridPane.rowIndex="5">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processDel" prefHeight="65.0" prefWidth="183.0" text="Delete" GridPane.columnIndex="2" GridPane.columnSpan="2">
+            <Button id="operator" mnemonicParsing="false" onAction="#processDel" prefHeight="65.0" prefWidth="183.0" text="Delete" GridPane.columnIndex="2" GridPane.columnSpan="2">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="111.0" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="111.0" text="÷" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="115.0" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Button id="nums" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="115.0" text="\%" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="135.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="135.0" text="9" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="150.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="150.0" text="x" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="86.0" prefWidth="100.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="86.0" prefWidth="100.0" text="6" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="143.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Button id="nums" mnemonicParsing="false" onAction="#processNum" prefHeight="65.0" prefWidth="143.0" text="3" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="116.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="116.0" text="-" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="155.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            <Button id="operator" mnemonicParsing="false" onAction="#processOperators" prefHeight="65.0" prefWidth="155.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#processEqual" prefHeight="65.0" prefWidth="135.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            <Button id="operator" cache="true" mnemonicParsing="false" onAction="#processEqual" prefHeight="65.0" prefWidth="135.0" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5">
                <font>
                   <Font size="30.0" />
                </font></Button>
-            <Button mnemonicParsing="false" onAction="#processDecimal" prefHeight="65.0" prefWidth="122.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Button id="nums" mnemonicParsing="false" onAction="#processDecimal" prefHeight="65.0" prefWidth="122.0" text="." GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="30.0" />
                </font>
