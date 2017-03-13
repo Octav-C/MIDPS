@@ -19,12 +19,13 @@ public class MainController {
 	private String text;
 	private boolean isDel = false;
 	private boolean decimal = false;
+	private boolean multiply = false;
 	
 	@FXML
 	public void processDel (ActionEvent event){
+		if (display.getText().equals("")) return;
 		isDel = true;
 		processNum(event);
-		
 	}
 	
 	@FXML
@@ -46,6 +47,7 @@ public class MainController {
 	@FXML
 	public void processOperators (ActionEvent event) {
 		double value;
+		decimal = false;
 		operatorInput = ((Button)event.getSource()).getText();
 		switch (operatorInput){
 		case "C":
@@ -62,11 +64,22 @@ public class MainController {
 			display.setText(String.valueOf(result));
 			break;
 		case "%":
+			if(multiply == true){
+				secondNum = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
+				result = firstNum * secondNum / 100;
+				display.setText(String.valueOf(result));
+				multiply = false;
+			}else{
+			firstNum = BigDecimal.valueOf(Double.parseDouble(display.getText())).doubleValue();
+			result = firstNum / 100;
+			display.setText(String.valueOf(result));
+			}
+			break;
 		case "÷":
 		case "x":
+			multiply = true;
 		case "-":
 		case "+":
-		
 		case "x^":
 			firstNum = Double.parseDouble(display.getText());
 			display.setText("");
@@ -75,20 +88,16 @@ public class MainController {
 	
 	@FXML
 	public void processDecimal (ActionEvent event) {
+		if(decimal == false){
 		display.setText(text + ((Button)event.getSource()).getText());
-		
+		decimal=true;
+		}
 	}
 	
 	@FXML
 	public void processEqual (ActionEvent event) {
 		secondNum = Double.parseDouble(display.getText());
 		switch (operatorInput){
-		case "%":
-			if (display.getText().equals(""))
-				result = 0;
-			else
-			result = firstNum * secondNum / 100;
-			break;
 		case "÷":
 			result = firstNum / secondNum;
 			break;
