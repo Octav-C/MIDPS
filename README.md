@@ -1,16 +1,14 @@
 # MIDPS
 # Hello
 
-##2nd Branch Modify
+******* Welcome to My Git ********
 
-##New Commit v0.1
-##Added new branch
-Adaugarea comiturilor pentru noul branch.
-Trying to return a commit;
-Before stash 1
+-Lab 1/Lab1raport.pdf - Done 
 
+-Lab 2/Lab2raport.pdf - Done 
 
-Aditional modification for conflict test.2  
-2
-2
+~Lab 3/Lab3raport.pdf - InProgress .....
+
+~Lab 4/Lab4raport.pdf - InProgress .....
+
 
