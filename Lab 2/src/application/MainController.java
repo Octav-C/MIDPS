@@ -1,5 +1,7 @@
 package application;
 
+import java.math.BigDecimal;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -9,14 +11,18 @@ public class MainController {
 	@FXML
 	private Label display;
 	private String output = "";
-	private double firstNum;
-	private double secondNum;
+	private BigDecimal firstNum;
+	private BigDecimal secondNum;
 	private String operatorInput;
-	private double result;
+	private BigDecimal result;
 	private String text;
 	private boolean isDel = false;
 	private boolean decimal = false;
 	
+	public static BigDecimal sqrt(BigDecimal value) {
+	    BigDecimal x = new BigDecimal(Math.sqrt(value.doubleValue()));
+	    return x.add(new BigDecimal(value.subtract(x.multiply(x)).doubleValue() / (x.doubleValue() * 2.0)));
+	}
 	
 	@FXML
 	public void processDel (ActionEvent event){
@@ -43,20 +49,20 @@ public class MainController {
 	
 	@FXML
 	public void processOperators (ActionEvent event) {
-		double value;
+		BigDecimal value;
 		operatorInput = ((Button)event.getSource()).getText();
 		switch (operatorInput){
 		case "C":
 			display.setText("0");
 			break;
 		case "±":
-			value = Double.parseDouble(display.getText());
+			value = BigDecimal.valueOf(Double.parseDouble(display.getText()));
 			value = value * (-1);
 			display.setText(String.valueOf(value));
 			break;
 		case "√":
-			firstNum = Double.parseDouble(display.getText());
-			result = Math.sqrt(firstNum);
+			firstNum = BigDecimal.valueOf(Double.parseDouble(display.getText()));
+			result = sqrt(firstNum);
 			display.setText(String.valueOf(result));
 			break;
 		case "%":
