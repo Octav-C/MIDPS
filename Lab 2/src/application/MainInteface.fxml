@@ -11,7 +11,7 @@
 
 <AnchorPane prefHeight="460.0" prefWidth="303.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
-      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="-60.0" prefHeight="126.0" prefWidth="303.0" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-32.0">
+      <Label fx:id="display" alignment="CENTER_RIGHT" layoutY="4.0" prefHeight="62.0" prefWidth="303.0" style="-fx-background-color: gray;" AnchorPane.bottomAnchor="366.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
          <font>
             <Font name="Consolas" size="58.0" />
          </font></Label>

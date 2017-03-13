@@ -15,6 +15,7 @@ public class MainController {
 	private double result;
 	private String text;
 	private boolean isDel = false;
+	private boolean decimal = false;
 	
 	
 	@FXML
@@ -35,8 +36,9 @@ public class MainController {
 		}else {	
 		if (display.getText() == "0")
 			display.setText("");
-
+		
 		display.setText(display.getText() + text);
+		text = display.getText();
 	}}
 	
 	@FXML
@@ -66,13 +68,13 @@ public class MainController {
 		case "x^":
 			firstNum = Double.parseDouble(display.getText());
 			display.setText("");
-			
 		}
 	}
 	
 	@FXML
 	public void processDecimal (ActionEvent event) {
-	
+		display.setText(text + ((Button)event.getSource()).getText());
+		
 	}
 	
 	@FXML
