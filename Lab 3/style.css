@@ -1,0 +1,48 @@
+#top_bar{
+
+	height:70px;
+	width:100%;
+	background-color:#2C2525;
+	margin:0 auto;
+    
+}
+
+body{
+    margin:0 auto;
+}
+
+#top_logo{
+    float:left;
+	height:60px;
+	width:200px;
+    margin-left:25%;
+    margin-top:5px;
+
+}
+#top_margin_left{
+    position:relative;
+    left:16%;
+    top:17px;
+}
+.top_menu{
+    color:white;
+    float:left;
+    font-family:LucidaGrande,Helvetica;
+    font-size:23px;
+    margin-right:2.8%;
+
+}
+#intro_container{
+    width:100%;
+    height:250px;
+    background-image: linear-gradient(-180deg, rgba(242,72,255,0.87) 0%, rgba(212,108,255,0.90) 25%, #38D1B9 100%);
+    border: 1px solid #979797;
+}
+
+#intro_img{
+    
+    height:180px;
+    width:240px;
+}
+
+}
