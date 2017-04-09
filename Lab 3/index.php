@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,10 +23,10 @@
       
         <img id="top_logo" src="images/top_logo.jpg" class="img-fluid" alt="Responsive image">
         <div id="top_margin_left">
-            <div class="top_menu">Home</div>
-            <div class="top_menu">Store</div>
-            <div class="top_menu">Sign In</div>
-            <div class="top_menu">Contact</div>
+            <div id="top_home" class="top_menu"><a class="buttons" href="index.php">Home</a></div>
+            <div id="top_store" class="top_menu">Store</div>
+            <div id="top_signin" class="top_menu">Sign In</div>
+            <div id="top_contact" class="top_menu"><a href="contact.php">Contact</a></div>
         </div>
     </div>
     <div id="intro_container">
@@ -75,7 +78,9 @@
     </div>
     <div id="half_bot_container">
         <div id="get_started_container">
-            
+            <div id="getstarted">
+                <span id="getstarted_text">Get Started</span>
+            </div>
         </div>
         <div id="blue_bottom">
 
@@ -84,9 +89,20 @@
         
     </div>
     <div id="bot_container">
-        
+        <div id="left_text">
+            <div id="left">
+                <span id="bot_text">Who are we?<br></span>
+                <span id="edit_left">We are the best project in which we make your dream come true. We do all our best to develop your app and help in your ideas.</span>
+            </div>
+            <div id="right">
+                <span id="findus">Find us<br></span>
+                <img id="face_logo"  src="images/facebook_logo.png">
+                <span id="face_id">AppStudioDev</span>
+            </div>
+        </div>
     </div> 
     
+    <script type="text/javascript" src="script.js"></script>
 
 
 
@@ -96,6 +112,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script type="text/javascript" src="script.js"></script>
-
+      
+    <script type="text/javascript">
+        
+        
+        
+    </script>
+      
   </body>
 </html>
