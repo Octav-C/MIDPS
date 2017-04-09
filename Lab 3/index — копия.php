@@ -26,7 +26,11 @@
             <div id="top_contact" class="top_menu"><a href="contact.php">Contact</a></div>
         </div>
     </div>
-    
+    <div id="intro_container">
+        <img id="intro_img"src="images/platform_logo.png" class="rounded mx-auto d-block" alt="Responsive image">
+        <div id="intro_text1">"Dream it.Code it.Build it"</div>
+        <div id="intro_text2">Let us to let your work be heard</div>
+    </div>  
       
     <div id="top_viewed">
         <div class="text_topview">Top Viewed Apps</div>
@@ -81,7 +85,19 @@
         <img id="bot_img"src="images/develop_logo.png" class="rounded mx-auto d-block" alt="Responsive image">
         
     </div>
-    
+    <div id="bot_container">
+        <div id="left_text">
+            <div id="left">
+                <span id="bot_text">Who are we?<br></span>
+                <span id="edit_left">We are the best project in which we make your dream come true. We do all our best to develop your app and help in your ideas.</span>
+            </div>
+            <div id="right">
+                <span id="findus">Find us<br></span>
+                <img id="face_logo"  src="images/facebook_logo.png">
+                <span id="face_id">AppStudioDev</span>
+            </div>
+        </div>
+    </div> 
     
     <script type="text/javascript" src="script.js"></script>
 

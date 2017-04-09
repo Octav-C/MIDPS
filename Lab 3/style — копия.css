@@ -19,9 +19,8 @@ body{
 }
 
 #top_margin_left{
-    float:left;
     position:relative;
-    left:30%;
+    left:16%;
     top:17px;
 }
 
@@ -30,7 +29,7 @@ body{
     float:left;
     font-family:LucidaGrande,Helvetica;
     font-size:23px;
-    margin-right:25px;
+    margin-right:2.8%;
 }
 
 .top_menu:hover{
@@ -149,7 +148,7 @@ body{
 }
 
 a{
-    color:white; 
+    color:white;  
 }
 
 a:hover{
