@@ -1,59 +1,41 @@
 <?php
 
-    $error = ""; $successMessage = "";
-
-    if ($_POST) {
+    session_start();
+    
+    if (array_key_exists('reg_email', $_POST) AND array_key_exists('reg_password', $_POST)) {    
+        $link = mysqli_connect("shareddb1a.hosting.stackcp.net", "appstudiodb1-34dea7", "wq7HBTkxQ+3V", "appstudiodb1-34dea7");
+            if (mysqli_connect_error()) {
         
-        if (!$_POST["email"]) {
-            
-            $error .= "An email address is required.<br>";
-            
-        }
+                die ("There was an error connecting to the database");
         
-        if (!$_POST["content"]) {
-            
-            $error .= "The content field is required.<br>";
-            
-        }
+            } 
         
-        if (!$_POST["subject"]) {
-            
-            $error .= "The subject is required.<br>";
-            
-        }
-        
-        if ($_POST['email'] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) === false) {
-            
-            $error .= "The email address is invalid.<br>";
-            
-        }
-        
-        if ($error != "") {
-            
-            $error = '<div class="alert alert-danger" role="alert"><p>There were error(s) in your form:</p>' . $error . '</div>';
-            
-        } else {
-            
-            $emailTo = "rickpap09@gmail.com";
-            
-            $subject = $_POST['subject'];
-            
-            $content = $_POST['content'];
-            
-            $headers = "From: ".$_POST['email'];
-            
-            if (mail($emailTo, $subject, $content, $headers)) {
+            $query = "SELECT `id` FROM `users` WHERE email = '".mysqli_real_escape_string($link, $_POST['reg_email'])."'";
+            $result = mysqli_query($link, $query);
+       
+        if (mysqli_num_rows($result) > 0) {
                 
-                $successMessage = '<div class="alert alert-success" role="alert">Your message was sent, we\'ll get back to you! With regards, AppStudioDev Team!</div>';
-                
-                
+                $error .= 'That email is already been taken!<br>';
+                 if ($error != "") {
+            
+                    $error = '<div class="alert alert-danger" role="alert"><p>There were error(s) in your form:</p>' . $error . '</div>';
+            
+                 }
             } else {
-                
-                $error = '<div class="alert alert-danger" role="alert"><p><strong>Your message couldn\'t be sent - please try again later</div>';   
-            }   
-        }
-    }
-
+        $query = "INSERT INTO `users` (`email`, `password`) VALUES ('".mysqli_real_escape_string($link, $_POST['reg_email'])."', '".mysqli_real_escape_string($link, $_POST['reg_password'])."')";
+        if (mysqli_query($link, $query)) {
+                    
+                    $_SESSION['reg_email'] = $_POST['reg_email'];
+                    $successMessage = '<div class="alert alert-success" role="alert">You have been registered successfully!</div>';
+                   
+                    
+                } else {
+                    
+                    $error = 'There was a problem registering, please try again later!<br>' ;
+                }   
+            
+            }    
+        }         
 ?>
 
 <!DOCTYPE html>
@@ -95,25 +77,22 @@
       
     <div class="container" id="contact_form">
       
-    <h1>Get in touch!</h1>
+    <h1>Register</h1>
       
       <div id="error"><? echo $error.$successMessage; ?></div>
       
       <form method="post">
-  <fieldset class="form-group">
-    <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
-    <small class="text-muted">We'll never share your email with anyone else.</small>
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="subject">Subject</label>
-    <input type="text" class="form-control" id="subject" name="subject" >
-  </fieldset>
-  <fieldset class="form-group">
-    <label for="exampleTextarea">What would you like to ask us?</label>
-    <textarea class="form-control" id="content" name="content" rows="3"></textarea>
-  </fieldset>
-  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+          <fieldset class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="reg_email" name="reg_email" placeholder="Enter email">
+            <small class="text-muted">We'll never share your email with anyone else.</small>
+          </fieldset>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name="reg_password" id="reg_password" placeholder="Password">
+          </div>
+          
+  <button type="submit" id="reg_submit" class="btn btn-primary">Submit</button>
         </form>
           
         </div>  

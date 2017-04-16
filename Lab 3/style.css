@@ -1,3 +1,5 @@
+
+
 #top_bar{
 	height:70px;
 	width:100%;
@@ -48,12 +50,14 @@ body{
 }
 
 #intro_img{
-    
+
     height:180px;
     width:240px;
 }
 
+
 #intro_text1{
+
     color:white;
     text-align:center;
     font-size:33px;
@@ -63,11 +67,18 @@ body{
 
 #intro_text2{
     color:white;
-    text-align:center;
     font-size:25px;
+    float:left;
     position:relative;
-    top:-16px;
-    left:210px;
+    left:45%;
+    bottom:20px;
+    
+}
+
+#top_viewed{
+    clear:left;
+    width:100%;
+    margin-top:10px;
 }
 
 .text_topview{
@@ -174,7 +185,7 @@ a:hover{
     height:140px;
     width:1000px;
     margin-left:25%;
-    margin-right:25%;
+    
     float:left;
 
     
@@ -196,8 +207,9 @@ a:hover{
 #right{
     float:left;
     width:290px;
-    margin-left:41%;
     height:140px;
+    position:relative;
+    left:41%;
 }
 
 #findus{
@@ -234,6 +246,11 @@ a:hover{
     background-color:#ea277c;  
 }
 
+#getstarted:hover{
+    background-color:#bc2165;  
+}
+
+
 #getstarted_text{
     color:white;
     position:relative;
@@ -242,4 +259,75 @@ a:hover{
     font-size:22px;
 }
 
+#getstarted_text1{
+    color:white;
+    float:left;
+    position:relative;
+    left:150px;
+    top:10px;
+   
+    font-size:22px;
+}
+
+#contact_form{
+    margin-left:25%;
+}
+
+/*POP UP SIGN IN!*/
+
+#popupBoxOnePosition{
+top:  0; 
+left: 0; 
+position: fixed; 
+width: 100%; 
+height: 120%;
+background: rgba(0,0,0,0.8); 
+display: none;
+
+}
+
+.popupBoxWrapper{
+width: 550px;
+height: 500px;
+margin: 50px auto;
+margin-top:120px;
+text-align: left;
+}
+
+.popupBoxContent{
+background-color: #eaeaea; 
+padding: 15px;
+border-radius:8px;
+
+}
+
+#register_color{
+    color:blue;
+
+}
+
+#register_color:hover{
+   background-color:aliceblue;
+
+}
+
+.sign-in-but{
+    margin-bottom:20px;
+}
+
+#sign-in-close{
+    background-color:#ba0b0b;
+    border-color:#8e0808;
+    border-radius:4px;
+    position:relative;
+    left:60px;
+    width:400px;
+}
+
+#sign-in-close:hover{
+    background-color:#8e0808;
+}
+
+
+/*END POP UP SIGN IN!*/
 
