@@ -94,7 +94,6 @@
           
   <button type="submit" id="reg_submit" class="btn btn-primary">Submit</button>
         </form>
-          
         </div>  
       
     <div id="half_bot_container">

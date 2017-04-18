@@ -1,4 +1,11 @@
 <?php
+session_start();
+    if ($_SESSION['email']) {
+        
+        $_SESSION['email']='';
+        
+    } 
+
     include 'sign_in.php';
     
 ?>
@@ -27,7 +34,7 @@
         <a href="index.php"><img id="top_logo" src="images/top_logo.jpg" ></a>
         <div id="top_margin_left">
             <div id="top_home" class="top_menu"><a class="buttons" href="index.php">Home</a></div>
-            <div id="top_store" class="top_menu"><a href="store.php">Store</a></div>
+            <div id="top_store" class="top_menu"><a href="register_form.php">Store</a></div>
             <div id="top_signin" class="top_menu"><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Sign In</a></div>
             <div id="top_contact" class="top_menu"><a href="contact.php">Contact</a></div>
         </div>

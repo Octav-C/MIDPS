@@ -1,5 +1,3 @@
-
-
 #top_bar{
 	height:70px;
 	width:100%;
@@ -23,15 +21,15 @@ body{
 #top_margin_left{
     float:left;
     position:relative;
-    left:30%;
-    top:17px;
+    right:-10%;
+    top:19px;
 }
 
 .top_menu{
     color:white;
     float:left;
     font-family:LucidaGrande,Helvetica;
-    font-size:23px;
+    font-size:20px;
     margin-right:25px;
 }
 
@@ -40,6 +38,18 @@ body{
     background-color:#494141;
     text-decoration:underline;
     text-decoration-color: skyblue;
+}
+
+#top_signin {
+    
+    display:block;
+    
+}
+
+#top_signedin {
+    
+    display:block;
+    
 }
 
 #intro_container{
@@ -151,6 +161,7 @@ body{
 	width:100%;
 	background-color:#2C2525;
 	margin:0 auto; 
+    clear:both;
 }
 #bot_img{
     position:relative;
@@ -273,8 +284,6 @@ a:hover{
     margin-left:25%;
 }
 
-/*POP UP SIGN IN!*/
-
 #popupBoxOnePosition{
 top:  0; 
 left: 0; 
@@ -290,7 +299,7 @@ display: none;
 width: 550px;
 height: 500px;
 margin: 50px auto;
-margin-top:120px;
+margin-top:80px;
 text-align: left;
 }
 
@@ -328,6 +337,99 @@ border-radius:8px;
     background-color:#8e0808;
 }
 
+/* APPS ON STORE */
 
-/*END POP UP SIGN IN!*/
+#all_apps{
+    width:75%;
+    height:auto;
+    margin-bottom:20px;
+    margin-top:20px;  
+    margin-left:350px;
+}
 
+table {
+    border: 1px solid gray;
+    font-size:14px;
+    width:174px;
+    height:270px;
+    float:left;
+    margin-right:20px;
+    margin-bottom:20px;
+    
+}
+
+th{
+    
+    padding:1px;
+    background-color: aliceblue;
+    
+}
+
+th,td {
+	border-right: 1px solid gray;
+	text-align:center;
+    word-wrap: break-word;
+}
+tr{
+    width:50px;
+    
+}
+
+.app_img{
+    width:168px;
+    height:168px;
+    padding:8px;
+}
+
+.apps_detail{
+    float:;
+}
+
+#android_apps{
+    
+}
+
+.hide_table_android{
+    display:;
+}
+
+.hide_table_ios{
+    display:;
+}
+
+#ios_apps{
+   
+}
+
+.app_detail_backcol{
+    background-color:skyblue;
+    border-radius:4px;
+    
+}
+
+#app_ios_butt{
+    position:absolute;
+    top:420px;
+    left:8%;
+}
+#app_android_butt{
+    position:absolute;
+    top:520px;
+    left:8%;
+}
+
+.size_but{
+    width:150px;
+    height:45px;
+    background-color:orangered;
+}
+
+
+
+/* END APPS ON STORE STYLE */
+
+#add_item_info{
+    
+    margin-bottom:30px;
+    
+}
