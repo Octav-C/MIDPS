@@ -6,11 +6,9 @@
         
         $active_email = $_SESSION['email'];
         
-    } else {
+    } 
+    
         
-        //header("Location: index.php");
-        
-    }
 
 
 ?>
@@ -38,8 +36,9 @@
       
         <a href="signedin.php"><img id="top_logo" src="images/top_logo.jpg" ></a>
         <div id="top_margin_left">
-            <div id="top_home" class="top_menu"><a class="buttons" href="signedin.php">Home</a></div>
-            <div id="top_store" class="top_menu"><a href="store.php">Store</a></div>
+            <div id="top_home" class="top_menu"><a  class="buttons" href="signedin.php">Home</a></div>
+            <div id="add_item" class="top_menu"><a  href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Add Item</a></div>
+            <div id="top_store" class="top_menu"><a  href="signedin.php">Store</a></div>
             <div id="top_signedin" class="top_menu">Welcome <?php echo $active_email ?></div>
             <div id="top_contact" class="top_menu"><a href="contact.php">Contact</a></div>
             <div id="log_out" class="top_menu" ><a href="index.php">Log Out</a></div>
@@ -50,60 +49,98 @@
         <div id="intro_text1">"Dream it.Code it.Build it"</div>
         <div id="intro_text2">Let us to let your work be heard</div>
     </div>
-      
-    <div id="top_viewed">
-        <div class="text_topview">Top Viewed Apps</div>
-        <div class="apps_container">
-            <div class="app_square" id="top_1">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="top_2">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="top_3">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="top_4">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square1" id="top_5">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-        </div>
-    </div>
-      
-    <div id="new_added">
-        <div class="text_topview">New Added Apps</div>
-        <div class="apps_container">
-            <div class="app_square" id="new_1">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="new_2">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="new_3">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="new_4">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square1" id="new_5">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-        </div>
-    </div>
-    <div id="half_bot_container">
-        <div id="get_started_container">
-            <div id="getstarted">
-                <span id="getstarted_text"><a href="register_form.php">Get Started</a></span>
-            </div>
-        </div>
-        <div id="blue_bottom">
-
-        </div>
-        <img id="bot_img"src="images/develop_logo.png" class="rounded mx-auto d-block" alt="Responsive image">
+         
+ <?php
+    $link = mysqli_connect("shareddb1a.hosting.stackcp.net", "appstudiodb1-34dea7", "wq7HBTkxQ+3V", "appstudiodb1-34dea7");
+    if (mysqli_connect_error()) {
         
-    </div>
+        die ("There was an error connecting to the database");
+        
+    }   
+
+    $query = "SELECT * FROM products";
+                
+        if($result = mysqli_query($link, $query)){
+            echo '<div id="all_apps">';
+            while ($row = mysqli_fetch_array($result)){
+                if($row['product_platform'] == "Android" ){
+                echo <<<EOT
+                     
+                         <table class="hide_table_android">
+                         <tbody class="hide_table_android">
+                          <tr >
+                            <td><img class="app_img"  src="{$row['product_img_name']}" ></td>
+                          <tr>
+
+                            <th>{$row['product_name']}</th>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Type:{$row['product_type']}</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Platform:{$row['product_platform']}</span></td>
+                          </tr>
+                          </tbody>
+                        </table> 
+EOT;
+                }else if($row['product_platform'] == "iOs"){
+                    echo <<<EOT
+                         <table class="hide_table_ios">
+                         <tbody class="hide_table_ios">
+                          <tr >
+                            <td><img class="app_img"  src="{$row['product_img_name']}" ></td>
+                          <tr>
+
+                            <th>{$row['product_name']}</th>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Type:{$row['product_type']}</span></td>
+                          </tr>
+                          <tr>
+                            <td><span  class="apps_detail app_detail_backcol">Platform:{$row['product_platform']}</span></td>
+                          </tr>
+                          </tbody>
+                        </table> 
+                        
+EOT;
+                }else
+                    echo <<<EOT
+                         <table >
+                         <tbody >
+                          <tr >
+                            <td><img class="app_img"  src="{$row['product_img_name']}" ></td>
+                          <tr>
+
+                            <th>{$row['product_name']}</th>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Type:{$row['product_type']}</span></td>
+                          </tr>
+                          <tr>
+                            <td><span  class="apps_detail app_detail_backcol">Platform:{$row['product_platform']}</span></td>
+                          </tr>
+                          </tbody>
+                        </table> 
+EOT;
+            }
+                echo '</div>'; //android_apps close
+        
+            echo '</div>';  //all_apps close
+            }
+                
+          ?> 
+      <div id="app_ios_butt"><button href="javascript:void(0)" onclick="ios_or_android('hide_table_android')" type="button" class="btn btn-primary size_but" data-toggle="button" aria-pressed="false" autocomplete="off">
+        iOs 
+</button></div> 
+        <div id="app_android_butt"><button href="javascript:void(0)" onclick="ios_or_android('hide_table_ios')" type="button" class="btn btn-primary size_but " data-toggle="button" aria-pressed="false" autocomplete="off">
+  Android
+</button></div>
+    
+      
+   
+      
+    
+    
     <div id="bot_container">
         <div id="left_text">
             <div id="left">
@@ -123,27 +160,99 @@
 			<div class="popupBoxWrapper">
 				<div class="popupBoxContent">
                     
-					<h3>Log In</h3>
-                    <div >OR click on <a href="register_form.php" id="register_color">REGISTER</a> if you don't have an acount!</div>
+					<h3>Add your app</h3>
+                    <div id="add_item_info">Complete all the blanks with necessary information!</div>
+                    <div id="app_error"><? echo $error.$successMessage; ?></div>
                     
                     <form method = "post">
                         
-                        <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                        <div class="form-group row">
+                          <label for="product_code" class="col-2 col-form-label">ID</label>
+                          <div class="col-10">
+                            <input name="product_code" class="form-control" type="text" placeholder="Product Code" id="product_code">
+                          </div>
                         </div>
-                        <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                        </div>
-                        <button id="submit-login" type="submit" class="btn btn-primary">Submit</button>
                         
+                        <div class="form-group row">
+                          <label for="product_name" class="col-2 col-form-label">Name</label>
+                          <div class="col-10">
+                            <input name="product_name" class="form-control" type="text" placeholder="App name" id="product_name">
+                          </div>
+                        </div>
+                        
+                        <div class="form-group row">
+                          <label for="product_description" class="col-2 col-form-label">Description</label>
+                          <div class="col-10">
+                            <input name="product_description" class="form-control" type="text" placeholder="Short App Description" id="product_description">
+                          </div>
+                        </div>
+                         <div class="form-group row">
+                          <label for="product_image" class="col-2 col-form-label">Image</label>
+                          <div class="col-10">
+                            <input name="product_image" class="form-control" type="text" placeholder="App Image Link" id="product_image">
+                          </div>
+                        </div>
+                        <div class="form-group row">
+                          <label for="product_price" class="col-2 col-form-label">Price</label>
+                          <div class="col-10">
+                            <input  name="product_price" class="form-control" type="number" min="0" step="any" placeholder="0.0" id="product_price">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                        <label for="product_platform">Platform</label>
+                        <select name="product_platform" class="form-control" id="product_platform">
+                          <option>iOs</option>
+                          <option>Android</option>
+                          <option>iOs/Android</option>
+                        </select>
+                       </div>
+                        <div class="form-group row">
+                          <label for="product_type" class="col-2 col-form-label">Type</label>
+                          <div class="col-10">
+                            <input name="product_type" class="form-control" type="text" placeholder="Ex.Game" id="product_type">
+                          </div>
+                        </div>
+                        
+                        
+                        <button type="submit" id="add_submit" class="btn btn-primary">Submit</button>
                     </form>
                     <button type="submit" class="btn btn-primary" id="sign-in-close" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Close</button>
+                        
 				</div>
 			</div>
       </div>
+      
+      <?php
+      //ADDING ITEMS ON WEBSITE
+        if ($_POST['product_code'] AND $_POST['product_name'] AND $_POST['product_description'] AND $_POST['product_image'] AND $_POST['product_price'] AND $_POST['product_platform'] AND $_POST['product_type']){
+            $link = mysqli_connect("shareddb1a.hosting.stackcp.net", "appstudiodb1-34dea7", "wq7HBTkxQ+3V", "appstudiodb1-34dea7");
+            if (mysqli_connect_error()) {
+        
+                die ("There was an error connecting to the database");
+        
+            } 
+             $query = "SELECT `id` FROM `products` WHERE product_code = '".mysqli_real_escape_string($link, $_POST['product_code'])."'";
+             $result = mysqli_query($link, $query);
+            if (mysqli_num_rows($result) > 0) {
+                
+                $error .= 'That Product ID is already exist!<br>';
+                 if ($error != "") {
+            
+                    $error = '<div class="alert alert-danger" role="alert"><p>There were error(s) in your form:</p>' . $error . '</div>';
+                 }
+            } else {
+                $query = "INSERT INTO `products`(`product_code`, `product_name`, `product_desc`, `product_img_name`, `price`, `product_platform`, `product_type`) VALUES ('".mysqli_real_escape_string($link, $_POST['product_code'])."', '".mysqli_real_escape_string($link, $_POST['product_name'])."','".mysqli_real_escape_string($link, $_POST['product_description'])."','".mysqli_real_escape_string($link, $_POST['product_image'])."','".mysqli_real_escape_string($link, $_POST['product_price'])."','".mysqli_real_escape_string($link, $_POST['product_platform'])."','".mysqli_real_escape_string($link, $_POST['product_type'])."')";
+                if (mysqli_query($link, $query)) {
+                    
+                    $successMessage = '<div class="alert alert-success" role="alert">You have been added successfully!</div>';
+            } else {
+                    
+                    $error = 'There was a problem with your item, please try again later!<br>' ;
+                }   
+            }      
+        }
+      
+      ?>
 
 
 

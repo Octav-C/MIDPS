@@ -1,49 +1,64 @@
 <?php
+     
+    include 'sign_in.php'; 
 
-    session_start();
-
-    if ($_SESSION['email']) {
+    if ($_POST['subject'] OR $_POST['content'] OR $_POST['email']) {
+        $error = ""; $successMessage = "";
+        if (!$_POST["email"]) {
+            
+            $error .= "An email address is required.<br>";
+            
+        }
         
-        $_SESSION['email']='';
+        if (!$_POST["content"]) {
+            
+            $error .= "The content field is required.<br>";
+            
+        }
         
-    } 
-
-    include 'sign_in.php';
-
-    if (array_key_exists('reg_email', $_POST) AND array_key_exists('reg_password', $_POST)) {    
-        $link = mysqli_connect("shareddb1a.hosting.stackcp.net", "appstudiodb1-34dea7", "wq7HBTkxQ+3V", "appstudiodb1-34dea7");
-            if (mysqli_connect_error()) {
+        if (!$_POST["subject"]) {
+            
+            $error .= "The subject is required.<br>";
+            
+        }
         
-                die ("There was an error connecting to the database");
+        if ($_POST['email'] && filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) === false) {
+            
+            $error .= "The email address is invalid.<br>";
+            
+        }
         
-            } 
-        
-            $query = "SELECT `id` FROM `users` WHERE email = '".mysqli_real_escape_string($link, $_POST['reg_email'])."'";
-            $result = mysqli_query($link, $query);
-       
-        if (mysqli_num_rows($result) > 0) {
+        if ($error != "") {
+            
+            $error = '<div class="alert alert-danger" role="alert"><p>There were error(s) in your form:</p>' . $error . '</div>';
+            
+        } else {
+            
+            $emailTo = "rickpap09@gmail.com";
+            
+            $subject = $_POST['subject'];
+            
+            $content = $_POST['content'];
+            
+            $headers = "From: ".$_POST['email'];
+            
+            if (mail($emailTo, $subject, $content, $headers)) {
                 
-                $error .= 'That email is already been taken!<br>';
-                 if ($error != "") {
-            
-                    $error = '<div class="alert alert-danger" role="alert"><p>There were error(s) in your form:</p>' . $error . '</div>';
-            
-                 }
+                $successMessage = '<div class="alert alert-success" role="alert">Your message was sent, we\'ll get back to you! With regards, AppStudioDev Team!</div>';
+                
+                
             } else {
-        $query = "INSERT INTO `users` (`email`, `password`) VALUES ('".mysqli_real_escape_string($link, $_POST['reg_email'])."', '".mysqli_real_escape_string($link, $_POST['reg_password'])."')";
-        if (mysqli_query($link, $query)) {
-                    
-                    $_SESSION['reg_email'] = $_POST['reg_email'];
-                    $successMessage = '<div class="alert alert-success" role="alert">You have been registered successfully!</div>';
-                   
-                    
-                } else {
-                    
-                    $error = 'There was a problem registering, please try again later!<br>' ;
-                }   
-            
-            }    
-        }         
+                
+                $error = '<div class="alert alert-danger" role="alert"><p><strong>Your message couldn\'t be sent - please try again later</div>';   
+            }   
+        }
+    }
+session_start();
+    if($_SESSION['email']){
+        $active_email = $_SESSION['email'];
+    }
+    
+
 ?>
 
 <!DOCTYPE html>
@@ -69,11 +84,11 @@
     <div id="top_bar" class="container">
       
         <a href="index.php"><img id="top_logo" src="images/top_logo.jpg" ></a>
-        <div id="top_margin_left">
+        <div id="top_margin_left" class="margin_index">
             <div id="top_home" class="top_menu"><a href="index.php">Home</a></div>
             <div id="top_store" class="top_menu"><a href="store.php">Store</a></div>
             <div id="top_signin" class="top_menu"><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Sign In</a></div>
-            <div id="top_contact" class="top_menu"><a href="contact.php">Contact</a></div>
+            <div id="top_contact" class="top_menu"><a class="buttons" href="contact.php">Contact</a></div>
         </div>
     </div>
       
@@ -82,32 +97,40 @@
         <div id="intro_text1">"Dream it.Code it.Build it"</div>
         <div id="intro_text2">Let us to let your work be heard</div>
     </div>
+      <div id="login_error_container">
+     
+          <?php echo $error; ?>
+        </div>
       
     <div class="container" id="contact_form">
       
-    <h1>Register</h1>
+    <h1>Get in touch!</h1>
       
       <div id="error"><? echo $error.$successMessage; ?></div>
       
       <form method="post">
-          <fieldset class="form-group">
-            <label for="email">Email address</label>
-            <input type="email" class="form-control" id="reg_email" name="reg_email" placeholder="Enter email">
-            <small class="text-muted">We'll never share your email with anyone else.</small>
-          </fieldset>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" name="reg_password" id="reg_password" placeholder="Password">
-          </div>
-          
-  <button type="submit" id="reg_submit" class="btn btn-primary">Submit</button>
+  <fieldset class="form-group">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+    <small class="text-muted">We'll never share your email with anyone else.</small>
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="subject">Subject</label>
+    <input type="text" class="form-control" id="subject" name="subject" >
+  </fieldset>
+  <fieldset class="form-group">
+    <label for="exampleTextarea">What would you like to ask us?</label>
+    <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+  </fieldset>
+  <button type="submit" id="submit" class="btn btn-primary">Submit</button>
         </form>
+          
         </div>  
       
     <div id="half_bot_container">
         <div id="get_started_container">
             <div id="getstarted">
-                <span id="getstarted_text1"><a href="register_form.php">Get Started</a></span>
+                <span id="getstarted_text"><a href="register_form.php">Get Started</a></span>
             </div>
         </div>
         <div id="blue_bottom">
@@ -129,7 +152,6 @@
             </div>
         </div>
     </div> 
-      
       <div id="popupBoxOnePosition">
 			<div class="popupBoxWrapper">
 				<div class="popupBoxContent">
@@ -148,7 +170,7 @@
                         <label for="password">Password</label>
                         <input name="password" type="password" class="form-control" id="password" placeholder="Password">
                         </div>
-                        <button id="submit_login0" type="submit" class="btn btn-primary">Submit</button>
+                        <button id="submit_login" type="submit" class="btn btn-primary">Submit</button>
                         
                     </form>
                     <button type="submit" class="btn btn-primary" id="sign-in-close" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Close</button>

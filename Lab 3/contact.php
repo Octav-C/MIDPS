@@ -1,7 +1,6 @@
 <?php
-    
-    include 'sign_in.php';
-    
+     
+    include 'sign_in.php'; 
 
     if ($_POST['subject'] OR $_POST['content'] OR $_POST['email']) {
         $error = ""; $successMessage = "";
@@ -86,11 +85,11 @@ session_start();
       
         <a href="signedin.php"><img id="top_logo" src="images/top_logo.jpg" ></a>
         <div id="top_margin_left">
-            <div id="top_home" class="top_menu"><a href="index.php">Home</a></div>
-            <div id="top_store" class="top_menu"><a href="store.php">Store</a></div>
-            <div id="top_signin" class="top_menu"><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Sign In</a></div>
+            <div id="top_home" class="top_menu"><a href="signedin.php">Home</a></div>
+            <div id="top_store" class="top_menu"><a href="signedin.php">Store</a></div>
             <div id="top_signedin" class="top_menu" href="javascript:void(0)" onclick="signed_in_visibility('top_signedin');">Welcome <?php echo $active_email ?></div>
             <div id="top_contact" class="top_menu"><a class="buttons" href="contact.php">Contact</a></div>
+            <div id="log_out" class="top_menu" ><a href="index.php">Log Out</a></div>
         </div>
     </div>
       
@@ -99,6 +98,10 @@ session_start();
         <div id="intro_text1">"Dream it.Code it.Build it"</div>
         <div id="intro_text2">Let us to let your work be heard</div>
     </div>
+      <div id="login_error_container">
+     
+          <?php echo $error; ?>
+        </div>
       
     <div class="container" id="contact_form">
       
@@ -156,19 +159,19 @@ session_start();
                     
 					<h3>Log In</h3>
                     <div >OR click on <a href="register_form.php" id="register_color">REGISTER</a> if you don't have an acount!</div>
-                    
+                    <div id="login_error"></div>
                     <form method = "post">
                         
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <label for="exemail">Email address</label>
+                        <input name="email" type="email" class="form-control" id="exemail" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
                         </div>
-                        <button id="submit-login" type="submit" class="btn btn-primary">Submit</button>
+                        <button id="submit_login" type="submit" class="btn btn-primary">Submit</button>
                         
                     </form>
                     <button type="submit" class="btn btn-primary" id="sign-in-close" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Close</button>

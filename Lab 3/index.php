@@ -6,9 +6,8 @@ session_start();
         
     } 
 
-    include 'sign_in.php';
-    
-?>
+    include 'sign_in.php'; 
+?> 
 
 <html lang="en">
   <head>
@@ -32,11 +31,11 @@ session_start();
     <div id="top_bar" class="container">
       
         <a href="index.php"><img id="top_logo" src="images/top_logo.jpg" ></a>
-        <div id="top_margin_left">
+        <div id="top_margin_left" class="margin_index">
             <div id="top_home" class="top_menu"><a class="buttons" href="index.php">Home</a></div>
             <div id="top_store" class="top_menu"><a href="register_form.php">Store</a></div>
             <div id="top_signin" class="top_menu"><a href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Sign In</a></div>
-            <div id="top_contact" class="top_menu"><a href="contact.php">Contact</a></div>
+            <div id="top_contact" class="top_menu"><a href="contact_nosign.php">Contact</a></div>
         </div>
     </div>
     <div id="intro_container">
@@ -44,48 +43,96 @@ session_start();
         <div id="intro_text1">"Dream it.Code it.Build it"</div>
         <div id="intro_text2">Let us to let your work be heard</div>
     </div>
-      
-    <div id="top_viewed">
-        <div class="text_topview">Top Viewed Apps</div>
-        <div class="apps_container">
-            <div class="app_square" id="top_1">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="top_2">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="top_3">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="top_4">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square1" id="top_5">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
+      <div id="login_error_container">
+        <?php echo $error; ?>
         </div>
-    </div>
       
-    <div id="new_added">
-        <div class="text_topview">New Added Apps</div>
-        <div class="apps_container">
-            <div class="app_square" id="new_1">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="new_2">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="new_3">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square" id="new_4">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-            <div class="app_square1" id="new_5">
-                <img src="images/app1.jpg" class="top_new_img_dimens">
-            </div>
-        </div>
-    </div>
+    <?php
+    $link = mysqli_connect("shareddb1a.hosting.stackcp.net", "appstudiodb1-34dea7", "wq7HBTkxQ+3V", "appstudiodb1-34dea7");
+    if (mysqli_connect_error()) {
+        
+        die ("There was an error connecting to the database");
+        
+    }   
+
+    $query = "SELECT * FROM products";
+                
+        if($result = mysqli_query($link, $query)){
+            echo '<div id="all_apps">';
+            while ($row = mysqli_fetch_array($result)){
+                if($row['product_platform'] == "Android" ){
+                echo <<<EOT
+                     
+                         <table class="hide_table_android">
+                         <tbody class="hide_table_android">
+                          <tr >
+                            <td><img class="app_img"  src="{$row['product_img_name']}" ></td>
+                          <tr>
+
+                            <th>{$row['product_name']}</th>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Type:{$row['product_type']}</span></td>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Platform:{$row['product_platform']}</span></td>
+                          </tr>
+                          </tbody>
+                        </table> 
+EOT;
+                }else if($row['product_platform'] == "iOs"){
+                    echo <<<EOT
+                         <table class="hide_table_ios">
+                         <tbody class="hide_table_ios">
+                          <tr >
+                            <td><img class="app_img"  src="{$row['product_img_name']}" ></td>
+                          <tr>
+
+                            <th>{$row['product_name']}</th>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Type:{$row['product_type']}</span></td>
+                          </tr>
+                          <tr>
+                            <td><span  class="apps_detail app_detail_backcol">Platform:{$row['product_platform']}</span></td>
+                          </tr>
+                          </tbody>
+                        </table> 
+                        
+EOT;
+                }else
+                    echo <<<EOT
+                         <table >
+                         <tbody >
+                          <tr >
+                            <td><img class="app_img"  src="{$row['product_img_name']}" ></td>
+                          <tr>
+
+                            <th>{$row['product_name']}</th>
+                          </tr>
+                          <tr>
+                            <td><span class="apps_detail app_detail_backcol">Type:{$row['product_type']}</span></td>
+                          </tr>
+                          <tr>
+                            <td><span  class="apps_detail app_detail_backcol">Platform:{$row['product_platform']}</span></td>
+                          </tr>
+                          </tbody>
+                        </table> 
+EOT;
+            }
+                echo '</div>'; //android_apps close
+        
+            echo '</div>';  //all_apps close
+            }
+                
+          ?> 
+      <div id="app_ios_butt"><button href="javascript:void(0)" onclick="ios_or_android('hide_table_android')" type="button" class="btn btn-primary size_but" data-toggle="button" aria-pressed="false" autocomplete="off">
+        iOs 
+</button></div> 
+        <div id="app_android_butt"><button href="javascript:void(0)" onclick="ios_or_android('hide_table_ios')" type="button" class="btn btn-primary size_but " data-toggle="button" aria-pressed="false" autocomplete="off">
+  Android
+</button></div>
+      
     <div id="half_bot_container">
         <div id="get_started_container">
             <div id="getstarted">
@@ -119,19 +166,19 @@ session_start();
                     
 					<h3>Log In</h3>
                     <div >OR click on <a href="register_form.php" id="register_color">REGISTER</a> if you don't have an acount!</div>
-                    
+                    <div id="login_error"></div>
                     <form method = "post">
                         
                         <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                        <label for="exemail">Email address</label>
+                        <input name="email" type="email" class="form-control" id="exemail" aria-describedby="emailHelp" placeholder="Enter email">
                         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                         </div>
                         <div class="form-group">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" class="form-control" id="password" placeholder="Password">
                         </div>
-                        <button id="submit-login" type="submit" class="btn btn-primary">Submit</button>
+                        <button id="submit_login0" type="submit" class="btn btn-primary">Submit</button>
                         
                     </form>
                     <button type="submit" class="btn btn-primary" id="sign-in-close" href="javascript:void(0)" onclick="toggle_visibility('popupBoxOnePosition');">Close</button>

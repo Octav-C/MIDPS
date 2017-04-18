@@ -14,7 +14,7 @@
             } 
         if ($_POST['email'] == '') {
             
-            echo "<p>Email address is required.</p>";
+            //echo "<p>Email address is required.</p>";
             
         } else if ($_POST['password'] == '') {
             
@@ -29,7 +29,7 @@
             header ("Location: signedin.php");
                 
             } else {
-        
+                $error = '<div class="alert alert-danger" role="alert"><p><strong>Your inserted email or password is not correct!</strong></p></div>';
                 //echo"<p>Wrong Password or Email, Try Again !</p>";
                 }   
             }    

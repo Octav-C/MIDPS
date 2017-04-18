@@ -162,7 +162,7 @@ EOT;
                     
 					<h3>Add your app</h3>
                     <div id="add_item_info">Complete all the blanks with necessary information!</div>
-                    <div id="app_error"><? echo $error.$successMessage; ?></div>
+                    <div id="app_error"><?php echo $error.$successMessage; ?></div>
                     
                     <form method = "post">
                         

@@ -62,6 +62,64 @@ $("#reg_submit").click(function(e) {
               }
           })
 
+$("#submit_login").click(function(e) {
+              
+              var error = "";
+              
+              if ($("#exemail").val() == "") {
+                  
+                  error += "The email field is required.<br>"
+                  
+              }
+              
+              if ($("#password").val() == "") {
+                  
+                  error += "The password field is required.<br>"
+                  
+              }
+
+              if (error != "") {
+                  
+                 $("#login_error").html('<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' + error + '</div>');
+                  
+                  return false;
+                  
+              } else {
+                  
+                  return true;
+                  
+              }
+          })
+
+$("#submit_login0").click(function(e) {
+              
+              var error = "";
+              
+              if ($("#exemail").val() == "") {
+                  
+                  error += "The email field is required.<br>"
+                  
+              }
+              
+              if ($("#password").val() == "") {
+                  
+                  error += "The password field is required.<br>"
+                  
+              }
+
+              if (error != "") {
+                  
+                 $("#login_error").html('<div class="alert alert-danger" role="alert"><p><strong>There were error(s) in your form:</strong></p>' + error + '</div>');
+                  
+                  return false;
+                  
+              } else {
+                  
+                  return true;
+                  
+              }
+          })
+
 $("#add_submit").click(function(e) {
               
               var error = "";
