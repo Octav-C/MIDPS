@@ -24,6 +24,7 @@
 		2B4167F11EB7431900E0BA2B /* SShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4167F01EB7431900E0BA2B /* SShape.swift */; };
 		2B4167F31EB7431C00E0BA2B /* ZShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4167F21EB7431C00E0BA2B /* ZShape.swift */; };
 		2B4167F51EB743C500E0BA2B /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 2B4167F41EB743C500E0BA2B /* Sprites.atlas */; };
+		2B4167F71EB74BF500E0BA2B /* Tetris.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4167F61EB74BF500E0BA2B /* Tetris.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		2B4167F01EB7431900E0BA2B /* SShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SShape.swift; sourceTree = "<group>"; };
 		2B4167F21EB7431C00E0BA2B /* ZShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZShape.swift; sourceTree = "<group>"; };
 		2B4167F41EB743C500E0BA2B /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		2B4167F61EB74BF500E0BA2B /* Tetris.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tetris.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +83,6 @@
 				2B4167BD1EB4F94600E0BA2B /* AppDelegate.swift */,
 				2B4167C31EB4F94600E0BA2B /* GameScene.swift */,
 				2B4167C51EB4F94600E0BA2B /* GameViewController.swift */,
-				2B4167C71EB4F94600E0BA2B /* Main.storyboard */,
-				2B4167CA1EB4F94600E0BA2B /* Assets.xcassets */,
-				2B4167CC1EB4F94600E0BA2B /* LaunchScreen.storyboard */,
 				2B4167CF1EB4F94600E0BA2B /* Info.plist */,
 				2B4167D51EB5EC8E00E0BA2B /* Array2D.swift */,
 				2B4167E21EB680DF00E0BA2B /* Block.swift */,
@@ -95,6 +94,10 @@
 				2B4167EE1EB7431400E0BA2B /* JShape.swift */,
 				2B4167F01EB7431900E0BA2B /* SShape.swift */,
 				2B4167F21EB7431C00E0BA2B /* ZShape.swift */,
+				2B4167F61EB74BF500E0BA2B /* Tetris.swift */,
+				2B4167C71EB4F94600E0BA2B /* Main.storyboard */,
+				2B4167CC1EB4F94600E0BA2B /* LaunchScreen.storyboard */,
+				2B4167CA1EB4F94600E0BA2B /* Assets.xcassets */,
 				2B4167F41EB743C500E0BA2B /* Sprites.atlas */,
 			);
 			path = "Tetris Game";
@@ -180,6 +183,7 @@
 				2B4167EF1EB7431400E0BA2B /* JShape.swift in Sources */,
 				2B4167E51EB742E200E0BA2B /* Shape.swift in Sources */,
 				2B4167D61EB5EC8E00E0BA2B /* Array2D.swift in Sources */,
+				2B4167F71EB74BF500E0BA2B /* Tetris.swift in Sources */,
 				2B4167EB1EB7430A00E0BA2B /* LineShape.swift in Sources */,
 				2B4167F11EB7431900E0BA2B /* SShape.swift in Sources */,
 				2B4167E91EB7430500E0BA2B /* TShape.swift in Sources */,
