@@ -7,6 +7,8 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     var tetris:Tetris!
     var panPointReference:CGPoint?
     
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var levelLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
