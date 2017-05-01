@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2B4167901EB4EF6600E0BA2B"
+               BlueprintIdentifier = "2B4167B91EB4F94600E0BA2B"
                BuildableName = "Tetris Game.app"
                BlueprintName = "Tetris Game"
                ReferencedContainer = "container:Tetris Game.xcodeproj">
@@ -32,7 +32,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B4167901EB4EF6600E0BA2B"
+            BlueprintIdentifier = "2B4167B91EB4F94600E0BA2B"
             BuildableName = "Tetris Game.app"
             BlueprintName = "Tetris Game"
             ReferencedContainer = "container:Tetris Game.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B4167901EB4EF6600E0BA2B"
+            BlueprintIdentifier = "2B4167B91EB4F94600E0BA2B"
             BuildableName = "Tetris Game.app"
             BlueprintName = "Tetris Game"
             ReferencedContainer = "container:Tetris Game.xcodeproj">
@@ -74,7 +74,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2B4167901EB4EF6600E0BA2B"
+            BlueprintIdentifier = "2B4167B91EB4F94600E0BA2B"
             BuildableName = "Tetris Game.app"
             BlueprintName = "Tetris Game"
             ReferencedContainer = "container:Tetris Game.xcodeproj">
