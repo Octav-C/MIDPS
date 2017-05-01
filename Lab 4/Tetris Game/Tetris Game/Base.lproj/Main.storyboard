@@ -81,9 +81,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="kd4-ss-N9Y"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="Xut-ZZ-G9Y"/>
-                <swipeGestureRecognizer direction="right" id="yt5-FU-58U"/>
+                <tapGestureRecognizer id="kd4-ss-N9Y">
+                    <connections>
+                        <action selector="tapGesture:" destination="BV1-FR-VrT" id="M9c-s0-bzu"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Xut-ZZ-G9Y">
+                    <connections>
+                        <action selector="panGesture:" destination="BV1-FR-VrT" id="iWR-1a-O5S"/>
+                    </connections>
+                </panGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="yt5-FU-58U">
+                    <connections>
+                        <action selector="swipeGesture:" destination="BV1-FR-VrT" id="DIP-1h-YdW"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="24.21875" y="36.328125"/>
         </scene>

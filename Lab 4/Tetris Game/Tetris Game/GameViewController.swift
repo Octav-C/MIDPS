@@ -33,7 +33,32 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         return true
     }
     
+    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+        tetris.rotateShape()
+    }
     
+    @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
+        let currentPoint = sender.translation(in: self.view)
+        if let originalPoint = panPointReference {
+            if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+                if sender.velocity(in: self.view).x > CGFloat(0) {
+                    tetris.moveShapeRight()
+                    panPointReference = currentPoint
+                } else {
+                    tetris.moveShapeLeft()
+                    panPointReference = currentPoint
+                }
+            }
+        } else if sender.state == .began {
+            panPointReference = currentPoint
+        }
+        
+    }
+    
+    @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
+        tetris.dropShape()
+        
+    }
     
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -108,7 +133,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         scene.redrawShape(tetris.fallingShape!) {
             tetris.letShapeFall()
         }
-        scene.playSound("Sounds/drop.mp3")
+        scene.playSound("Sounds/drop.wav")
     }
     
     func gameShapeDidLand(_ tetris: Tetris) {
@@ -120,7 +145,7 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
             scene.animateCollapsingLines(removedLines.linesRemoved, fallenBlocks:removedLines.fallenBlocks) {
                 self.gameShapeDidLand(tetris)
             }
-            scene.playSound("Sounds/bomb.mp3")
+            scene.playSound("Sounds/bomb.wav")
         } else {
             nextShape()
         }
