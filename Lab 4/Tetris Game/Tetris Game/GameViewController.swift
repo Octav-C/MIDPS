@@ -9,13 +9,15 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
     
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var levelLabel: UILabel!
+
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Configure the view.
         let skView = view as! SKView
         skView.isMultipleTouchEnabled = false
-        
         // Create and configure the scene.
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .aspectFill
@@ -33,14 +35,17 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         return true
     }
     
-    @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
+    
+    @IBAction func tapGest(_ sender: UITapGestureRecognizer) {
         tetris.rotateShape()
     }
-    
+   
     @IBAction func panGesture(_ sender: UIPanGestureRecognizer) {
         let currentPoint = sender.translation(in: self.view)
         if let originalPoint = panPointReference {
+
             if abs(currentPoint.x - originalPoint.x) > (BlockSize * 0.9) {
+
                 if sender.velocity(in: self.view).x > CGFloat(0) {
                     tetris.moveShapeRight()
                     panPointReference = currentPoint
@@ -52,12 +57,10 @@ class GameViewController: UIViewController, TetrisDelegate, UIGestureRecognizerD
         } else if sender.state == .began {
             panPointReference = currentPoint
         }
-        
     }
     
     @IBAction func swipeGesture(_ sender: UISwipeGestureRecognizer) {
         tetris.dropShape()
-        
     }
     
     
