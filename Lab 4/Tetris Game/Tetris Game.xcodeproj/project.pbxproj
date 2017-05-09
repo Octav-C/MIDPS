@@ -386,6 +386,7 @@
 				2B4167D41EB4F94600E0BA2B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
